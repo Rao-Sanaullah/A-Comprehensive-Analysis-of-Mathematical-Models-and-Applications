@@ -45,9 +45,9 @@ The simulation of different neuron models: the leaky integrate-and-fire (LIF) mo
 
 # Dataset
 
-The dataset for this study was generated using the following approach; Let $n_{samples} = 1000$, $x_1 \sim \mathcal{N}(0,1)$, $x_2 \sim \mathcal{N}(3,1)$, $X = \begin{bmatrix} x_1 & x_2 \end{bmatrix}$, $y = \begin{bmatrix} 0_{n_{samples}} & 1_{n_{samples}} \end{bmatrix}$, where $0_{n_{samples}}$ and $1_{n_{samples}}$ are the vectors of length $n_{samples}$ filled with zeros and ones, respectively. To shuffle the dataset, let $indices = \begin{bmatrix} 0 & 1 & \cdots & 2n_{samples}-1 \end{bmatrix}$, and apply a random permutation to $indices$. Then, let $X$ and $y$ be the arrays obtained by indexing $X$ and $y$ with the shuffled $indices$.
+The dataset for this study was generated using the following approach; Let 𝑛𝑠𝑎𝑚𝑝𝑙𝑒𝑠 = 1000, 𝑥1 ∼ N(0, 1), 𝑥2 ∼ N(3, 1), 𝑋 = [ 𝑥1 𝑥2 ], 𝑦 = [0 {𝑛𝑠𝑎𝑚𝑝𝑙𝑒𝑠} 1 {𝑛𝑠𝑎𝑚𝑝𝑙𝑒𝑠}], where 0{𝑛𝑠𝑎𝑚𝑝𝑙𝑒𝑠} and 1{𝑛𝑠𝑎𝑚𝑝𝑙𝑒𝑠} are the vectors of length 𝑛𝑠𝑎𝑚𝑝𝑙𝑒𝑠 filled with zeros and ones, respectively. To shuffle the dataset, let 𝑖𝑛𝑑𝑖𝑐𝑒𝑠 = [0 1 · · · 2𝑛𝑠𝑎𝑚𝑝𝑙𝑒𝑠 − 1], and apply a random permutation to 𝑖𝑛𝑑𝑖𝑐𝑒𝑠. Then, let 𝑋 and 𝑦 be the arrays obtained by indexing 𝑋 and 𝑦 with the shuffled 𝑖𝑛𝑑𝑖𝑐𝑒𝑠.
 
-where $n = 1000$ is the number of samples, $x_{1,i} \sim \mathcal{N}(0,1)$ and $x_{2,i} \sim \mathcal{N}(3,1)$ are the features of the $i$-th sample for $i \in {1, \dots, n}$, and $y$ is a vector of length $2n$ where the first $n$ elements are 0 and the last $n$ elements are 1. The dataset is then shuffled using the indices $indices = [0, 1, \dots, 2n-1]$, and $X$ and $y$ are updated accordingly.
+where 𝑛 = 1000 is the number of samples, 𝑥1,𝑖 ∼ N(0, 1) and 𝑥2,𝑖 ∼ N(3, 1) are the features of the 𝑖-th sample for 𝑖 ∈ 1, . . . , 𝑛, and 𝑦 is a vector of length 2𝑛 where the first 𝑛 elements are 0 and the last 𝑛 elements are 1. The dataset is then shuffled using the indices 𝑖𝑛𝑑𝑖𝑐𝑒𝑠 = [0, 1, . . . , 2𝑛 − 1], and 𝑋 and 𝑦 are updated accordingly.
 
 # References:
 
