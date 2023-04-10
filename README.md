@@ -47,7 +47,15 @@ The simulation of different neuron models: the leaky integrate-and-fire (LIF) mo
 # References:
 
 [1] Samanwoy Ghosh-Dastidar and Hojjat Adeli. Spiking neural networks. 2009.
+
 [2] Doron Tal and Eric L Schwartz. Computing with the leaky integrate-and-fire neuron: logarithmic computation and multiplication. 1997.
+
 [3] Wulfram Gerstner and Romain Brette. Adaptive exponential integrate-and-fire model. Scholarpedia, 2009.
+
 [4] Renaud Jolivet, Timothy J Lewis, and Wulfram Gerstner. Generalized integrateand-fire models of neuronal activity approximate spike trains of a detailed model to a high degree of accuracy. Journal of neurophysiology, 92(2):959–976, 2004.
 
+
+
+For any help, please contact
+
+Sanaullah (sanaullah@fh-bielefeld.de)
