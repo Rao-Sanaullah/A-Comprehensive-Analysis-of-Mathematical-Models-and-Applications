@@ -1,3 +1,9 @@
+#GNU GENERAL PUBLIC LICENSE
+
+# Copyright (C) Software Foundation, Inc. <https://fsf.org/>
+# Only Author of this code is permitted to copy and distribute verbatim copies
+# of this license document. Please contact us for contribution~!
+
 ############# The output of this code provides lists of the number of operations required for each ne#################
 """
 Each neuron model is a mathematical description of how neurons work, and each model has its own set of 
