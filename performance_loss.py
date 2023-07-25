@@ -1,3 +1,9 @@
+#GNU GENERAL PUBLIC LICENSE
+
+# Copyright (C) Software Foundation, Inc. <https://fsf.org/>
+# Only Author of this code is permitted to copy and distribute verbatim copies
+# of this license document. Please contact us for contribution~!
+
 #the performance of the different SNN neural models was explored using classification accuracy and performance loss as the performance metrics, 
 #where classification accuracy measures the percentage of correctly classified samples or data points by a model. 
 #Therefore, we used classification accuracy to evaluate how accurately each SNN model classified the input data,
