@@ -9,45 +9,9 @@ This repository discusses Spiking Neural Networks (SNNs) and their mathematical 
 In this study, we investigate the behavior of various SNN models through simulations based on their respective equations. The models were implemented using an update method that determines whether a spike occurred or not based on the input current and time step. We evaluated the performance of each model by measuring its classification accuracy and performance loss. We also randomly initialized weights for each model and visualized the spiking activity of neurons over time. Figure \ref{per} demonstrates the performance loss between different models. We executed each model using 1000 samples as inputs and 1000 neurons, although other parameters varied for each model.
 
 
-  1- Classification Results
-  
-![Classification Results](https://github.com/Rao-Sanaullah/Evaluating-Spiking-Neural-Network-Models-A-Comparative-Performance-Analysis/blob/main/2.png)
-
-  2- Performance Loss
-  
-![Performance Loss](https://github.com/Rao-Sanaullah/Evaluating-Spiking-Neural-Network-Models-A-Comparative-Performance-Analysis/blob/main/1.png)
-
-
-The performance loss between LIF vs NLIF, AdEX vs LIF, and AdEX vs NLIF model. The performance of each two compared models is measured in terms of their accuracy. We used 1000 nsamples as inputs and 1000 neurons for each model execution. However, the values of other parameters varied for each model.
-
-
-These results show the classification accuracy and performance loss of different SNN models. In other words, LIF model had an accuracy of 71.65%, while NLIF had an accuracy of 67.05%. AdEX model had the highest accuracy of 90.65%. The performance loss of LIF model was -6.86% relative to NLIF, -26.52% relative to AdEX with LIF, and -35.20% relative to AdEX with NLIF. These results provide insights into the suitability of different SNN models for classification tasks, and can aid in selecting the appropriate model for a given task.
-
-
-# Membrane potential (mV) / Spikes
-
-The simulation of different neuron models: the leaky integrate-and-fire (LIF) model [2], the nonlinear LIF (NLIF) model [3], and the adaptive exponential (AdEx) model [4]. Each neuron model is defined by a set of differential equations that describe how the neuron's voltage and other state variables change over time in response to input currents.
-
-
-- Voltage trace and Spike raster plots
-
-  1- LIF neuron model
-  
-![Classification Results](https://github.com/Rao-Sanaullah/Evaluating-Spiking-Neural-Network-Models-A-Comparative-Performance-Analysis/blob/main/s1.png)
-
-  2- NLIF neuron model
-  
-![Performance Loss](https://github.com/Rao-Sanaullah/Evaluating-Spiking-Neural-Network-Models-A-Comparative-Performance-Analysis/blob/main/s2.png)
-
-  3- AdEX neuron model
-
-![Performance Loss](https://github.com/Rao-Sanaullah/Evaluating-Spiking-Neural-Network-Models-A-Comparative-Performance-Analysis/blob/main/s3.png)
-
 # Dataset
 
-The dataset for this study was generated using the following approach; Let 𝑛𝑠𝑎𝑚𝑝𝑙𝑒𝑠 = 1000, 𝑥1 ∼ N(0, 1), 𝑥2 ∼ N(3, 1), 𝑋 = [ 𝑥1 𝑥2 ], 𝑦 = [0 {𝑛𝑠𝑎𝑚𝑝𝑙𝑒𝑠} 1 {𝑛𝑠𝑎𝑚𝑝𝑙𝑒𝑠}], where 0{𝑛𝑠𝑎𝑚𝑝𝑙𝑒𝑠} and 1{𝑛𝑠𝑎𝑚𝑝𝑙𝑒𝑠} are the vectors of length 𝑛𝑠𝑎𝑚𝑝𝑙𝑒𝑠 filled with zeros and ones, respectively. To shuffle the dataset, let 𝑖𝑛𝑑𝑖𝑐𝑒𝑠 = [0 1 · · · 2𝑛𝑠𝑎𝑚𝑝𝑙𝑒𝑠 − 1], and apply a random permutation to 𝑖𝑛𝑑𝑖𝑐𝑒𝑠. Then, let 𝑋 and 𝑦 be the arrays obtained by indexing 𝑋 and 𝑦 with the shuffled 𝑖𝑛𝑑𝑖𝑐𝑒𝑠.
-
-where 𝑛 = 1000 is the number of samples, 𝑥1,𝑖 ∼ N(0, 1) and 𝑥2,𝑖 ∼ N(3, 1) are the features of the 𝑖-th sample for 𝑖 ∈ 1, . . . , 𝑛, and 𝑦 is a vector of length 2𝑛 where the first 𝑛 elements are 0 and the last 𝑛 elements are 1. The dataset is then shuffled using the indices 𝑖𝑛𝑑𝑖𝑐𝑒𝑠 = [0, 1, . . . , 2𝑛 − 1], and 𝑋 and 𝑦 are updated accordingly.
+Datasets play a crucial role in the development and evaluation of machine learning models, including spiking neural networks. The synthetic dataset used in this study was designed to have two classes that are easily separable by a linear classifier, which allows for a straightforward evaluation of the performance of different models. Additionally, the synthetic dataset is more transparent in terms of the underlying data generation process, which can help in identifying the strengths and weaknesses of different models.
 
 # References:
 
