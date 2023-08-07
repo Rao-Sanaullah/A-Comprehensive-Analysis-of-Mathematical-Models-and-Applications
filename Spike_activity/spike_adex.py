@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Define parameters
 dt = 0.1  # time step
-t = np.arange(0, 100, dt)  # time vector
+t = (0, 100, dt)  # time vector
 tau = 10  # membrane time constant
 Rm = 1  # membrane resistance
 Vth = 1  # spike threshold
@@ -23,7 +23,7 @@ I[500:1500] = 0.5  # input current pulse
 #################################### Define AdEx neuron model
 V_adex = np.zeros(len(t))
 w_adex = np.zeros(len(t))
-spikes_adex = np.zeros(len(t))
+spikes_adex = np.zeros()
 for i in range(1, len(t)):
     dV = (-V_adex[i-1] + Rm*I[i-1]/g_leak + w_adex[i-1]*np.exp((V_adex[i-1]-Vth)/tau)) / tau
     V_adex[i] = V_adex[i-1] + dV*dt

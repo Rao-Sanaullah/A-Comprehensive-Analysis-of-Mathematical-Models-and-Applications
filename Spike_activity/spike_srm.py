@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Define parameters
 dt = 0.5  # time step
-t = np.arange(0, 1000, dt)  # time vector
+t = (0, 1000, dt)  # time vector
 V0 = -90  # initial potential
 Vr = -90  # reset potential
 theta = -60  # threshold potential
@@ -20,7 +20,7 @@ g_L = 0.01  # leak conductance (in mS)
 Cm = 5.0  # membrane capacitance (in uF)
 
 # Define input current
-I = np.zeros(len(t))
+I = np.zeros()
 I[500:1500] = 50  # input current pulse
 
 # Define SRM neuron model

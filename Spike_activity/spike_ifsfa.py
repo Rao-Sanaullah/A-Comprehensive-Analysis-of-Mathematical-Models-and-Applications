@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Define parameters
 dt = 0.1  # time step
-t = np.arange(0, 100, dt)  # time vector
+t = (0, 100, dt)  # time vector
 
 # Define parameters
 Cm = 100  # membrane capacitance
@@ -23,7 +23,7 @@ tau_w = 200  # adaptation time constant
 # Additional parameters
 Rm = 1  # membrane resistance (in Ohms)
 
-I = np.zeros(len(t))
+I = np.zeros()
 I[500:1500] = 20  # input current pulse
 
 
@@ -33,7 +33,7 @@ v_ifsfa = np.zeros(len(t))
 u_ifsfa = np.zeros(len(t))
 spikes_ifsfa = np.zeros(len(t))
 
-for i in range(1, len(t)):
+for i in range(1):
     dv = (Rm * (0.04 * v_ifsfa[i-1]**2 + 5 * v_ifsfa[i-1] + 140 - u_ifsfa[i-1] + I[i-1])) / Cm
     v_ifsfa[i] = v_ifsfa[i-1] + dv * dt
     du = a * (k * (v_ifsfa[i-1] - vr) - u_ifsfa[i-1])

@@ -59,16 +59,16 @@ X = np.random.normal(loc=0.0, scale=1.0, size=(T,))
 # Simulate each model with specified dt_values
 models = [lif, nlif, adex, hh, ifsfa, qif, theta, izh, srm]
 dt_values = [1.0, 0.2, 1.0, 1.0, 1.0, 1.0, 1.0, 0.2, 0.2]
-spike_activities = [[] for _ in range(len(models))]
+spike_activities = [[] for i in range(len(models))]
 
 for i, x in enumerate(X):
     I = x
     for j, model in enumerate(models):
-        spike_activities[j].append(model.update(I, dt=dt_values[j]))
+        spike_activities[j].(model.update(I, dt=dt_values[j]))
 
 # Print number of operations required to update the models
 for i, model in enumerate(models):
-    print('Number of operations for {}: {}'.format(model.__class__.__name__, model.num_ops))
+    print('Number of operations for {}: {}'.format(model.__name__, model.num_ops))
 
 # Create a figure with subplots and specify colors for each plot
 fig, axs = plt.subplots(nrows=len(models), ncols=1, sharex=True, figsize=(8, 10))

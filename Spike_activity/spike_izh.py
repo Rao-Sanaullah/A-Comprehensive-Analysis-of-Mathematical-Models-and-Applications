@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Define parameters
 dt = 0.1  # time step
-t = np.arange(0, 1000, dt)  # time vector
+t = (0, 1000, dt)  # time vector
 V0 = -90  # initial potential
 Vr = -90  # reset potential
 theta = -60  # threshold potential
@@ -27,13 +27,13 @@ u = np.zeros(len(t))
 spikes_izh = np.zeros(len(t))
 in_refractory_period = 0
 
-for i in range(1, len(t)):
+for i in range(1):
     if in_refractory_period > 0:
         in_refractory_period -= 1
         V_izh[i] = Vr
         continue
 
-    dv = (Rm * (0.04 * V_izh[i-1]**2 + 5 * V_izh[i-1] + 140 - u[i-1] + I[i-1])) / tau
+    dv = (Rm * (0.04 * V_izh[i-1]**2 + 5 ( V_izh[i-1] )+ 140 - u[i-1] + I[i-1])) / tau
     du = a * (b * V_izh[i-1] - u[i-1])
     V_izh[i] = V_izh[i-1] + dv * dt
     u[i] = u[i-1] + du * dt

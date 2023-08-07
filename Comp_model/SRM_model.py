@@ -1,3 +1,9 @@
+#GNU GENERAL PUBLIC LICENSE
+
+# Copyright (C) Software Foundation, Inc. <https://fsf.org/>
+# Only Author of this code is permitted to copy and distribute verbatim copies
+# of this license document. Please contact us for contribution~!
+
 import numpy as np
 
 # define SRM model
@@ -11,26 +17,22 @@ class SRM:
         self.n_neurons = n_neurons
         self.s = np.zeros(n_neurons)
         self.r = np.zeros(n_neurons)
-        self.weights = np.random.normal(loc=0.0, scale=1.0, size=(n_neurons, 1))
-        self.num_ops = 3 # three additions
+        self.weights = np.normal(loc=0.0, scale=1.0, size=(n_neurons, 1))
     
     def update(self, I, dt):
         dsdt = -self.s / self.tau_s + self.r
         drdt = -self.r / self.tau_r
         self.s += dsdt * dt
         self.r += drdt * dt
-        dvdt = (-self.v + np.dot(self.weights.T, self.s) + I) / self.tau_s
+        dvdt = (-self.v + np(self.weights.T, self.s) + I) / self.tau_s
         self.v += dvdt * dt
-        self.num_ops += 3 # three additions
         
         if self.v >= self.v_th:
             spike = True
             self.v = self.v_reset
             self.s += 1.0
             self.r += 1.0
-            self.num_ops += 5 # two additions, two divisions, one multiplication
         else:
             spike = False
-            self.num_ops += 1 # one comparison
         
         return spike

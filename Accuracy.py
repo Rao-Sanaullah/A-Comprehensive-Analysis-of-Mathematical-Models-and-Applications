@@ -47,78 +47,78 @@ lif = LIF(tau=4, v_reset=0.0, v_th=1.0, n_neurons=1000)
 lif_spikes = np.zeros(len(X))
 for i, x in enumerate(X):
     I = x
-    spike = lif.update(I, dt=1.0)
+    spike = lif(I, dt=1.0)
     lif_spikes[i] = spike
 
 ########################################################## train NLIF model
 nlif = NLIF(tau=4, v_reset=0.0, v_th=1.0, alpha=0.5, beta=0.5, n_neurons=1000)
 nlif_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = nlif.update(I, dt=1.0)
+    spike = nlif(I, dt=1.0)
     nlif_spikes[i] = spike
 
 
 ###################################################### train AdEX model
 adex = AdEX(tau_m=4, v_rheo=0.5, v_spike=1.0, delta_T=1.0, v_reset=0.0, n_neurons=1000)
 adex_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = adex.update(I, dt=1.0)
+    spike = adex(I, dt=1.0)
     adex_spikes[i] = spike
 
 ##################################################### train HH model
 
 hh = HH(v_init=-75.0, n_init=0.3177, m_init=0.0529, h_init=0.5961, n_neurons=1000)
 hh_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = hh.update(I, dt=1.0)
+    spike = hh(I, dt=1.0)
     hh_spikes[i] = spike
 
 ####################################################### train Izhikevich model
 
 izh = Izhikevich(a=0.02, b=0.2, c=-65, d=6, n_neurons=1000)
 izh_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = izh.update(I, dt=1.0)
+    spike = izh(I, dt=1.0)
     izh_spikes[i] = spike
 
 ###################################################### train SRM model
 
 srm = SRM(tau_s=8, tau_r=8, v_reset=0.0, v_th=1.0, n_neurons=1000)
 srm_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = srm.update(I, dt=1.0)
+    spike = srm(I, dt=1.0)
     srm_spikes[i] = spike
 
 ###################################################### train IFSFA model
 
 ifsfa = IFSFA(tau_m=4, tau_w=100, a=0.1, b=0.01, delta_T=2, v_reset=0.0, v_th=1.0, n_neurons=1000)
 ifsfa_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = ifsfa.update(I, dt=1.0)
+    spike = ifsfa(I, dt=1.0)
     ifsfa_spikes[i] = spike
 
 ##################################################### train QIF model
 
 qif = QIF(tau=4, v_reset=0.0, v_th=1.0, n_neurons=1000, beta=0.5)
 qif_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = qif.update(I, dt=1.0)
+    spike = qif(I, dt=1.0)
     qif_spikes[i] = spike
 
 ##################################################### train ThetaNeuron model
 
 theta = ThetaNeuron(tau=4, v_reset=0.0, v_th=1.0, n_neurons=1000)
 theta_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = theta.update(I, dt=1.0)
+    spike = theta(I, dt=1.0)
     theta_spikes[i] = spike
 
 ##################################################### compute classification accuracy
@@ -180,7 +180,7 @@ axs[2, 2].set_title('ThetaNeuron')
 
 axs[3, 1].plot(['LIF', 'NLIF', 'AdEX', 'HH', 'Izh', 'SRM', 'IFSFA', 'QIF', 'TNeu'], [lif_acc, nlif_acc, adex_acc, hh_acc, izh_acc, srm_acc, ifsfa_acc, qif_acc, theta_acc], '-o', color='blue')
 axs[3, 1].plot(['LIF', 'NLIF', 'AdEX', 'HH', 'Izh', 'SRM', 'IFSFA', 'QIF', 'TNeu'], [1 - lif_acc, 1 - nlif_acc, 1 - adex_acc, 1 - hh_acc, 1 - izh_acc, 1 - srm_acc, 1- ifsfa_acc, 1- qif_acc, 1 - theta_acc], '-o', color='orange')
-axs[3, 1].set_ylim(0, 1)
+axs[3, 1].set_ylim(0)
 axs[3, 1].set_ylabel('Percentage')
 axs[3, 1].set_title('Performance Comparison')
 axs[3, 1].legend(['Accuracy', 'Error'])
@@ -251,8 +251,8 @@ for i, label in enumerate(labels):
     axs[i].set_xlabel('Model')
     axs[i].set_ylabel('Percentage')
     axs[i].set_ylim(0, 1)
-    axs[i].grid(True)
-axs[i].legend(loc='upper center', bbox_to_anchor=(0.5, -0.2), ncol=10)
+    axs[i].grid()
+axs[i].legend(loc='upper center', bbox_to_anchor=(0.5, 0.2), ncol=10)
 
 # set the font size
 plt.rcParams.update({'font.size': 14})

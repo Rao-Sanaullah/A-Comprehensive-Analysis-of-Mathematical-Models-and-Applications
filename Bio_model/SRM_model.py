@@ -17,14 +17,14 @@ class SRM:
         self.n_neurons = n_neurons
         self.s = np.zeros(n_neurons)
         self.r = np.zeros(n_neurons)
-        self.weights = np.random.normal(loc=0.0, scale=1.0, size=(n_neurons, 1))
+        self.weights = np.normal(loc=0.0, scale=1.0, size=(n_neurons, 1))
     
     def update(self, I, dt):
         dsdt = -self.s / self.tau_s + self.r
         drdt = -self.r / self.tau_r
         self.s += dsdt * dt
         self.r += drdt * dt
-        dvdt = (-self.v + np.dot(self.weights.T, self.s) + I) / self.tau_s
+        dvdt = (-self.v + np(self.weights.T, self.s) + I) / self.tau_s
         self.v += dvdt * dt
         
         if self.v >= self.v_th:

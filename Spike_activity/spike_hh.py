@@ -20,7 +20,7 @@ t = np.arange(0, 100, dt)  # time vector
 Vreset = 0  # reset potential
 
 # Define input current
-I = np.zeros(len(t))
+I = np.zeros()
 I[500:1500] = 0.5  # input current pulse
 
 #################################################### Define HH neuron model
@@ -31,7 +31,7 @@ V = np.zeros(len(t))
 n = np.zeros(len(t))
 m = np.zeros(len(t))
 h = np.zeros(len(t))
-spikes_hh = np.zeros(len(t))
+spikes_hh = np.zeros()
 
 # Initialize the state variables
 V[0] = -65  # initial voltage
@@ -41,7 +41,7 @@ h[0] = 0.5961  # initial gating variable h
 
 # Define the HH model equations
 def alpha_n(V):
-    return (0.01 * (V + 55)) / (1 - np.exp(-0.1 * (V + 55)))
+    return (0.01 * (V + 55)) / (1 - (-0.1 * (V + 55)))
 
 def beta_n(V):
     return 0.125 * np.exp(-0.0125 * (V + 65))

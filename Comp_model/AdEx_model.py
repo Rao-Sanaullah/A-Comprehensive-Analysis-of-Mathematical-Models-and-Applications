@@ -1,3 +1,9 @@
+#GNU GENERAL PUBLIC LICENSE
+
+# Copyright (C) Software Foundation, Inc. <https://fsf.org/>
+# Only Author of this code is permitted to copy and distribute verbatim copies
+# of this license document. Please contact us for contribution~!
+
 import numpy as np
 
 # define AdEx model
@@ -10,17 +16,11 @@ class AdEX:
         self.v_reset = v_reset
         self.v = v_init
         self.n_neurons = n_neurons
-        self.weights = np.random.normal(loc=0.0, scale=1.0, size=(n_neurons, 1))
-        self.num_ops = 5  # one multiplication, four additions
+        self.weights = np.normal(loc=0.0, scale=1.0, size=(n_neurons, 1))
         
     def update(self, I, dt):
-        dvdt = (-self.v + self.tau_m * I - self.v_rheo + self.delta_T * np.exp((self.v - self.v_spike) / self.delta_T)) / self.tau_m
+        dvdt = (-self.v + self.tau_m * I + self.delta_T * np.exp((self.v - self.v_spike) / self.delta_T)) / self.tau_m
         self.v += dvdt * dt
         spike = self.v >= self.v_spike
-        if spike:
-            self.v = self.v_reset
-            self.num_ops += 4  # two multiplications, two additions
-        else:
-            self.num_ops += 1  # one multiplication
-        self.num_ops += 3  # three additions
+        self.v = np.where(spike, self.v_reset, self.v)
         return spike

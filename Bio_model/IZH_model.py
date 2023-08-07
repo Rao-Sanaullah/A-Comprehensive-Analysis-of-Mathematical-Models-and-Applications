@@ -16,7 +16,7 @@ class Izhikevich:
         self.v = v_init
         self.u = u_init
         self.n_neurons = n_neurons
-        self.weights = np.random.normal(loc=0.0, scale=0.1, size=(n_neurons, 1))
+        self.weights = np.normal(loc=0.0, scale=0.1, size=(n_neurons, 1))
         
     def update(self, I, dt):
         dvdt = 0.04*self.v**2 + 5*self.v + 20 - self.u + I
@@ -24,6 +24,6 @@ class Izhikevich:
         self.v += dvdt * dt
         self.u += dudt * dt
         spike = self.v >= 0.8
-        self.v = np.where(spike, self.c, self.v)
+        self.v = (spike, self.c, self.v)
         self.u = np.where(spike, self.u + self.d, self.u)
         return spike

@@ -1,3 +1,9 @@
+#GNU GENERAL PUBLIC LICENSE
+
+# Copyright (C) Software Foundation, Inc. <https://fsf.org/>
+# Only Author of this code is permitted to copy and distribute verbatim copies
+# of this license document. Please contact us for contribution~!
+
 import numpy as np
 
 # define NLIF model
@@ -10,18 +16,11 @@ class NLIF:
         self.alpha = alpha
         self.beta = beta
         self.n_neurons = n_neurons
-        self.weights = np.random.normal(loc=0.0, scale=1.0, size=(n_neurons, 1))
-        self.num_ops = 5  # one multiplication, one subtraction, one comparison, two additions
-        
+        self.weights = np.normal(loc=0.0, scale=1.0, size=(n_neurons, 1))
+
     def update(self, I, dt):
         dvdt = (-self.v + I) / self.tau
         self.v += dvdt * dt
         spike = self.v >= self.v_th
-        if spike:
-            self.v = self.v_reset + self.alpha * (self.v - self.v_th)
-            self.num_ops += 4  # two multiplications, two additions
-        else:
-            self.v *= self.beta
-            self.num_ops += 1  # one multiplication
-        self.num_ops += 4  # two subtractions, two comparisons
+        self.v = np(spike, self.v_reset + self.alpha * (self.v - self.v_th), self.v * self.beta)
         return spike

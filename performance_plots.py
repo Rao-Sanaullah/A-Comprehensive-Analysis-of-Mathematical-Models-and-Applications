@@ -43,7 +43,7 @@ y = np.hstack([np.zeros(n_samples), np.ones(n_samples)])
 
 # Shuffle dataset using sklearn.utils.shuffle
 from sklearn.utils import shuffle
-X, y = shuffle(X.reshape(-1, 1), y)
+X, y = shuffle(X(-1, 1), y)
 
 # The shape of X is (2000, 1), and the shape of y is (2000,).
 # You can reshape X to have it in the format (2000, 1) if required.
@@ -53,80 +53,80 @@ X, y = shuffle(X.reshape(-1, 1), y)
 ######################################################### train LIF model
 lif = LIF(tau=4, v_reset=0.0, v_th=1.0, n_neurons=1000)
 lif_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = lif.update(I, dt=1.0)
+    spike = lif(I, dt=1.0)
     lif_spikes[i] = spike
 
 ########################################################## train NLIF model
 nlif = NLIF(tau=4, v_reset=0.0, v_th=1.0, alpha=0.5, beta=0.5, n_neurons=1000)
 nlif_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = nlif.update(I, dt=1.0)
+    spike = nlif(I, dt=1.0)
     nlif_spikes[i] = spike
 
 
 ###################################################### train AdEX model
 adex = AdEX(tau_m=4, v_rheo=0.5, v_spike=1.0, delta_T=1.0, v_reset=0.0, n_neurons=1000)
 adex_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = adex.update(I, dt=1.0)
+    spike = adex(I, dt=1.0)
     adex_spikes[i] = spike
 
 ##################################################### train HH model
 
 hh = HH(v_init=-75.0, n_init=0.3177, m_init=0.0529, h_init=0.5961, n_neurons=1000)
 hh_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = hh.update(I, dt=1.0)
+    spike = hh(I, dt=1.0)
     hh_spikes[i] = spike
 
 ####################################################### train Izhikevich model
 
 izh = Izhikevich(a=0.02, b=0.2, c=-65, d=6, n_neurons=1000)
 izh_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = izh.update(I, dt=1.0)
+    spike = izh(I, dt=1.0)
     izh_spikes[i] = spike
 
 ###################################################### train SRM model
 
 srm = SRM(tau_s=8, tau_r=8, v_reset=0.0, v_th=1.0, n_neurons=1000)
 srm_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = srm.update(I, dt=1.0)
+    spike = srm(I, dt=1.0)
     srm_spikes[i] = spike
 
 ###################################################### train IFSFA model
 
 ifsfa = IFSFA(tau_m=4, tau_w=100, a=0.1, b=0.01, delta_T=2, v_reset=0.0, v_th=1.0, n_neurons=1000)
 ifsfa_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in(X):
     I = x
-    spike = ifsfa.update(I, dt=1.0)
+    spike = ifsfa(I, dt=1.0)
     ifsfa_spikes[i] = spike
 
 ##################################################### train QIF model
 
 qif = QIF(tau=4, v_reset=0.0, v_th=1.0, n_neurons=1000, beta=0.5)
 qif_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = qif.update(I, dt=1.0)
+    spike = qif(I, dt=1.0)
     qif_spikes[i] = spike
 
 ##################################################### train ThetaNeuron model
 
 theta = ThetaNeuron(tau=4, v_reset=0.0, v_th=1.0, n_neurons=1000)
 theta_spikes = np.zeros(len(X))
-for i, x in enumerate(X):
+for i, x in (X):
     I = x
-    spike = theta.update(I, dt=1.0)
+    spike = theta(I, dt=1.0)
     theta_spikes[i] = spike
 
 ##################################################### compute classification

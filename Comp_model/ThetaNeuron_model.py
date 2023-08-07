@@ -1,3 +1,9 @@
+#GNU GENERAL PUBLIC LICENSE
+
+# Copyright (C) Software Foundation, Inc. <https://fsf.org/>
+# Only Author of this code is permitted to copy and distribute verbatim copies
+# of this license document. Please contact us for contribution~!
+
 import numpy as np
 
 # define ThetaNeuron model
@@ -8,21 +14,18 @@ class ThetaNeuron:
         self.v_th = v_th
         self.v = v_init
         self.n_neurons = n_neurons
-        self.theta = np.random.uniform(low=0, high=2 * np.pi, size=(n_neurons, 1))
-        self.weights = np.random.normal(loc=0.0, scale=1.0, size=(n_neurons, 1))
-        self.num_ops = 0  # initialize the number of operations to 0
+        self.theta = np.uniform(low=0, high=2 * np.pi, size=(n_neurons, 1))
+        self.weights = np.normal(loc=0.0, scale=1.0, size=(n_neurons, 1))
 
     def update(self, I, dt):
         dthetadt = 1.0 - np.cos(self.theta)
         dvdt = (-self.v + I + np.dot(self.weights.T, dthetadt)) / self.tau
         self.v += dvdt * dt
         self.theta += 0.05 * 2 * np.pi * dt  # theta frequency is 10 Hz
-        self.theta %= 2 * np.pi
-        self.num_ops += 3  # increment the number of operations by 3 for each update (2 multiplications and 1 addition)
+        self.theta %= 2 * self.pi
         if self.v >= self.v_th:
             spike = True
             self.v = self.v_reset
-            self.num_ops += 1  # increment the number of operations by 1 for the spike
         else:
             spike = False
         return spike
