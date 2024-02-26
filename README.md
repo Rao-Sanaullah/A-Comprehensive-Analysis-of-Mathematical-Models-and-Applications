@@ -13,13 +13,9 @@ For any help, please contact
 
 Sanaullah (sanaullah@hsbi.de)
 
-preferred-citation:
-  type: article
-  authors:
-  - family-names: "Lisa"
-    given-names: "Mona"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
-
 ## References
-<a id="1">[1]</a> 
+<a id="1">[https://www.frontiersin.org/articles/10.3389/fncom.2023.1215824/full]</a> 
 Sanaullah, Koravuna, Shamini, Ulrich Rückert, and Thorsten Jungeblut. "Exploring spiking neural networks: a comprehensive analysis of mathematical models and applications." Frontiers in Computational Neuroscience 17 (2023).
+
+<a id="2">[[https://www.frontiersin.org/articles/10.3389/fncom.2023.1215824/full](https://pub.uni-bielefeld.de/record/2982810)]</a> 
+Sanaullah, Shamini Koravuna, Ulrich Rückert, and Thorsten Jungeblut. "Evaluating Spiking Neural Network Models: A Comparative Performance Analysis." (2023).
