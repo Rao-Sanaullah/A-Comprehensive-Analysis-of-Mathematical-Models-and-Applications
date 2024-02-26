@@ -13,6 +13,12 @@ For any help, please contact
 
 Sanaullah (sanaullah@hsbi.de)
 
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Lisa"
+    given-names: "Mona"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
 
 ## References
 <a id="1">[1]</a> 
