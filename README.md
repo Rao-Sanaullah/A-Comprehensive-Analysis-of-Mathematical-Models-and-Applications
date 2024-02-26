@@ -14,8 +14,8 @@ For any help, please contact
 Sanaullah (sanaullah@hsbi.de)
 
 ## References
-<a id="1">[1](https://www.frontiersin.org/articles/10.3389/fncom.2023.1215824/full)</a> 
+<a id="1">[[1]](https://www.frontiersin.org/articles/10.3389/fncom.2023.1215824/full)</a> 
 Sanaullah, Sanaullah, Shamini Koravuna, Ulrich Rückert, and Thorsten Jungeblut. "Exploring Spiking Neural Networks: A Comprehensive Analysis of Mathematical Models and Applications." Frontiers in Computational Neuroscience 17: 1215824.
 
-<a id="2">[1](https://pub.uni-bielefeld.de/record/2982810)</a> 
+<a id="2">[[2]](https://pub.uni-bielefeld.de/record/2982810)</a> 
 Sanaullah, Koravuna, S., Rückert, U., & Jungeblut, T. (2023). Evaluating Spiking Neural Network Models: A Comparative Performance Analysis. Dataninja Annual Spring School 2023. 
