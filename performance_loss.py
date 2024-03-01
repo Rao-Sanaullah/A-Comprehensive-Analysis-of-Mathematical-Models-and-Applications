@@ -49,7 +49,7 @@ from sklearn.utils import shuffle
 X, y = shuffle(X.reshape(-1, 1), y)
 
 ######################################################### train LIF model
-lif = LIF(tau=4, v_reset=0.0, v_th=1.0, n_neurons=1000)
+lif = LIF(tau=4, v_reset=0.0, v_th=1.0)
 lif_spikes = np.zeros(len(X))
 for i, x in enumerate(X):
     I = x
@@ -57,7 +57,7 @@ for i, x in enumerate(X):
     lif_spikes[i] = spike
 
 ########################################################## train NLIF model
-nlif = NLIF(tau=4, v_reset=0.0, v_th=1.0, alpha=0.5, beta=0.5, n_neurons=1000)
+nlif = NLIF(tau=4, v_reset=0.0, v_th=1.0, alpha=0.5, beta=0.5)
 nlif_spikes = np.zeros(len(X))
 for i, x in enumerate(X):
     I = x
@@ -66,7 +66,7 @@ for i, x in enumerate(X):
 
 
 ###################################################### train AdEX model
-adex = AdEX(tau_m=4, v_rheo=0.5, v_spike=1.0, delta_T=1.0, v_reset=0.0, n_neurons=1000)
+adex = AdEX(tau_m=4, v_rheo=0.5, v_spike=1.0, delta_T=1.0, v_reset=0.0)
 adex_spikes = np.zeros(len(X))
 for i, x in enumerate(X):
     I = x
@@ -75,7 +75,7 @@ for i, x in enumerate(X):
 
 ##################################################### train HH model
 
-hh = HH(v_init=-75.0, n_init=0.3177, m_init=0.0529, h_init=0.5961, n_neurons=1000)
+hh = HH(v_init=-75.0, n_init=0.3177, m_init=0.0529, h_init=0.5961)
 hh_spikes = np.zeros(len(X))
 for i, x in enumerate(X):
     I = x
@@ -84,7 +84,7 @@ for i, x in enumerate(X):
 
 ####################################################### train Izhikevich model
 
-izh = Izhikevich(a=0.02, b=0.2, c=-65, d=6, n_neurons=1000)
+izh = Izhikevich(a=0.02, b=0.2, c=-65, d=6)
 izh_spikes = np.zeros(len(X))
 for i, x in enumerate(X):
     I = x
@@ -93,7 +93,7 @@ for i, x in enumerate(X):
 
 ###################################################### train SRM model
 
-srm = SRM(tau_s=8, tau_r=8, v_reset=0.0, v_th=1.0, n_neurons=1000)
+srm = SRM(tau_s=8, tau_r=8, v_reset=0.0, v_th=1.0)
 srm_spikes = np.zeros(len(X))
 for i, x in enumerate(X):
     I = x
@@ -102,7 +102,7 @@ for i, x in enumerate(X):
 
 ###################################################### train IFSFA model
 
-ifsfa = IFSFA(tau_m=4, tau_w=100, a=0.1, b=0.01, delta_T=2, v_reset=0.0, v_th=1.0, n_neurons=1000)
+ifsfa = IFSFA(tau_m=4, tau_w=100, a=0.1, b=0.01, delta_T=2, v_reset=0.0, v_th=1.0)
 ifsfa_spikes = np.zeros(len(X))
 for i, x in enumerate(X):
     I = x
@@ -111,7 +111,7 @@ for i, x in enumerate(X):
 
 ##################################################### train QIF model
 
-qif = QIF(tau=4, v_reset=0.0, v_th=1.0, n_neurons=1000, beta=0.5)
+qif = QIF(tau=4, v_reset=0.0, v_th=1.0, beta=0.5)
 qif_spikes = np.zeros(len(X))
 for i, x in enumerate(X):
     I = x
@@ -120,7 +120,7 @@ for i, x in enumerate(X):
 
 ##################################################### train ThetaNeuron model
 
-theta = ThetaNeuron(tau=4, v_reset=0.0, v_th=1.0, n_neurons=1000)
+theta = ThetaNeuron(tau=4, v_reset=0.0, v_th=1.0)
 theta_spikes = np.zeros(len(X))
 for i, x in enumerate(X):
     I = x
@@ -305,6 +305,3 @@ perf_loss_theta_ifsfa = (ifsfa_acc - theta_acc) / ifsfa_acc
 print('Performance loss of ThetaNeuron relative to IFSFA: {:.2f}%'.format(perf_loss_theta_ifsfa * 100))
 perf_loss_theta_qif = (qif_acc - theta_acc) / qif_acc
 print('Performance loss of ThetaNeuron relative to QIF: {:.2f}%'.format(perf_loss_theta_qif * 100))
-
-
-
