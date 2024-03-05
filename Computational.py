@@ -45,9 +45,9 @@ adex = AdEX(tau_m=4, v_rheo=0.5, v_spike=1.0, delta_T=1.0, v_reset=0.0)
 hh = HH(v_init=-75.0, n_init=0.3177, m_init=0.0529, h_init=0.5961)
 izh = Izhikevich(a=0.02, b=2, c=-65, d=6)
 srm = SRM(tau_s=0.3, tau_r=10, v_reset=0.0, v_th=1.0)
-ifsfa = IFSFA(tau_m=4, tau_w=100, a=0.1, b=0.01, delta_T=2, v_reset=0.0, v_th=1.0)
+ifsfa = IFSFA(tau_m=4, tau_w=100, a=0.1, b=0.01, delta_T=2, v_reset=0.0, v_th=2)
 qif = QIF(tau=4, v_reset=0.0, v_th=1.0, beta=0.5)
-theta = ThetaNeuron(tau=4, v_reset=0.0, v_th=1.0)
+theta = ThetaNeuron(tau=4, v_reset=0.0, v_th=1.1)
 
 T = 1000
 X = np.random.normal(loc=0.0, scale=1.0, size=(T,))
