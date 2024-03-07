@@ -131,15 +131,15 @@ for i, x in enumerate(X):
 
 ##################################################### compute classification accuracy
 
-lif_acc = np.mean(lif_spikes == y)
-nlif_acc = np.mean(nlif_spikes == y)
-adex_acc = np.mean(adex_spikes == y)
-hh_acc = np.mean(hh_spikes == y)
-izh_acc = np.mean(izh_spikes == y)
-srm_acc = np.mean(srm_spikes == y)
-ifsfa_acc = np.mean(ifsfa_spikes == y)
-qif_acc = np.mean(qif_spikes == y)
-theta_acc = np.mean(theta_spikes == y)
+lif_acc = np.mean((lif_spikes == 1) == y)
+nlif_acc = np.mean((nlif_spikes == 1) == y)
+adex_acc = np.mean((adex_spikes == 1) == y)
+hh_acc = np.mean((hh_spikes == 1) == y)
+izh_acc = np.mean((izh_spikes == 1) == y)
+srm_acc = np.mean((srm_spikes == 1) == y)
+ifsfa_acc = np.mean((ifsfa_spikes == 1) == y)
+qif_acc = np.mean((qif_spikes == 1) == y)
+theta_acc = np.mean((theta_spikes == 1) == y)
 
 print('LIF accuracy: {:.2f}%'.format(lif_acc * 100))
 print('NLIF accuracy: {:.2f}%'.format(nlif_acc * 100))
